@@ -42,8 +42,35 @@ public class Rectangles extends BasicGame {
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException
     {
-        this.xRect = this.xRect + (float)delta / this.speed;
+
         //Rectangle
+        if(this.xRect >= 700)
+        {
+            xRectIsTrue = false;
+        } else if (this.xRect <= 100)
+        {
+            xRectIsTrue = true;
+        }
+        if(this.yRect >=  500)
+        {
+            yRectIsTrue = false;
+        } else if (this.yRect <= 100)
+        {
+            yRectIsTrue = true;
+        }
+        if(xRectIsTrue == true && yRectIsTrue == true)
+        {
+            this.xRect = this.xRect + (float)delta / this.speed;
+        } else if (xRectIsTrue == false && yRectIsTrue == true)
+        {
+            this.yRect = this.yRect + (float)delta / this.speed;
+        } else if (xRectIsTrue == false && yRectIsTrue == false)
+        {
+            this.xRect = this.xRect - (float)delta / this.speed;
+        } else if (xRectIsTrue == true && yRectIsTrue == false)
+        {
+            this.yRect = this.yRect - (float)delta / this.speed;
+        }
 
         //Oval
         if(this.xOval >=  700)
@@ -53,7 +80,6 @@ public class Rectangles extends BasicGame {
         {
             OvalIsTrue = true;
         }
-
         if (this.OvalIsTrue == true)
         {
             this.xOval = this.xOval + (float)delta / this.speed;
@@ -62,8 +88,9 @@ public class Rectangles extends BasicGame {
         {
             this.xOval = this.xOval - (float)delta / this.speed;
         }
+
         //Circle
-        if(this.yCircle >=  700)
+        if(this.yCircle >=  600)
         {
             CircleIsTrue = false;
         } else if (this.yCircle <= 100)
