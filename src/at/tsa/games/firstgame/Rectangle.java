@@ -4,7 +4,7 @@ import org.newdawn.slick.Graphics;
 
 public class Rectangle
 {
-    private enum DIRECTION {RIGHT, DOWN, LEFT, UP}
+
     private float x;
     private float y;
     private float speed;
